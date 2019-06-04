@@ -1,0 +1,19 @@
+<h1>Patient Information</h1>
+
+<% jsoncontents = File.read(@data.path) %>
+<% patient_hash = JSON.parse(jsoncontents) %>
+
+<label>Name of patient: </label><%= patient_hash["name"][0]["given"][0] + " " + patient_hash["name"][0]["family"][0] %><br>
+
+<label>Organization name: </label><%= patient_hash["managingOrganization"]["display"] %><br>
+
+<label>Gender: </label><%= patient_hash["gender"].capitalize %><br>
+
+<label>Number of conditions they have: </label><%= patient_hash["conditions"].length %><br><br>
+
+<label>List of all conditions: </label>
+<ul>
+	<% patient_hash["conditions"].each do |condition| %>
+		<li><%= condition %></li>
+	<% end %>
+</ul>

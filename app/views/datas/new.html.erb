@@ -1,0 +1,13 @@
+<h1>Add File Path</h1>
+
+<%= form_for :data, url: datas_path do |f| %>
+	<p>
+		<%= f.label "Enter file path to patient json file" %><br>
+		<%= f.label "(Replace '\\' with '/')" %><br>
+		<%= f.text_field :path %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
